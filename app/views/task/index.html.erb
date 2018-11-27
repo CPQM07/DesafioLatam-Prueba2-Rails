@@ -1,0 +1,17 @@
+<div class="row">
+    <% @tasks.each do |task| %>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="<%= task.img %>" alt="<%= task.title %>" height="225" width="100">
+            <div class="card-body">
+                <p class="card-text"><%= task.title %></p>
+                <div class="d-flex justify-content-between align-items-center">    
+                    <button type="button" class="btn btn-sm btn-outline-info">Listo</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger">No listo</button>
+                    <small class="text-muted"><%= task.diff_for_hummans %></small>
+                </div>
+            </div>
+            </div>
+        </div>
+    <% end %>
+</div>
