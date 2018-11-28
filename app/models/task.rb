@@ -7,6 +7,6 @@ class Task < ApplicationRecord
 
     def check_done_task(current_task, user)
         user = User.find(user.id)
-        user.tasks.exists? current_task.id ? true : false 
+        user.tasks.exists? current_task.id
     end
 end
