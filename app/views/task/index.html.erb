@@ -4,12 +4,15 @@
             <div class="card mb-4 shadow-sm">
             <img class="card-img-top" src="<%= task.img %>" alt="<%= task.title %>" height="225" width="100">
             <div class="card-body">
-                <p class="card-text"><%= task.title %></p>
+                <p class="card-text">
+                    <%= task.title %>
+                </p>
                 <div class="d-flex justify-content-between align-items-center"> 
+                    <%= link_to  "Ver", task_path(task), class:"btn btn-sm btn-outline-success" %>
                     <% if task.check_done_task(task, current_user) %> 
-                        <button type="button" class="btn btn-sm btn-outline-info">Listo</button>
+                        <%= link_to  "Eliminar Tarea", dettach_path(task), class:"btn btn-sm btn-outline-danger" %>
                     <% else %>
-                        <button type="button" class="btn btn-sm btn-outline-danger">No listo</button>
+                        <%= link_to  "Realizar Tarea", attach_path(task), class:"btn btn-sm btn-outline-info" %>
                     <% end %>
                     <small class="text-muted"><%= task.diff_for_hummans %></small>
                 </div>

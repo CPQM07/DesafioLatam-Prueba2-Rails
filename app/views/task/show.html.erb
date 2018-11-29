@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" src="<%= @task.img %>" alt="<%= @task.title %>" height="225" width="100">
+        <div class="card-body">
+            <p class="card-text">
+                <%= @task.title %>
+            </p>
+            <div class="d-flex justify-content-between align-items-center"> 
+                <small class="text-muted"><%= @task.diff_for_hummans %></small>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <% if @first_user_taks == nil %>
+            <div class="alert alert-primary" role="alert">
+                De momento ningun usuario a completado esta tarea.
+            </div>
+        <% else %>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col text-right">Usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @first_user_taks.each do |user|%>
+                        <tr>
+                            <th scope="row"><%= user.id %></th>
+                            <td class="text-right"> <%= user.email %> </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
+    </div> 
+
+</div>
